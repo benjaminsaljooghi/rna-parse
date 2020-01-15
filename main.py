@@ -1,6 +1,6 @@
 from pathlib import Path
 from collections import defaultdict
-from stringbuilder import StringBuilder
+from reportwriter import ReportWriter
 
 directory = Path("/media/dperrin/ssd_data/riboProf/temp2020/") 
 
@@ -29,7 +29,7 @@ for temp in temps:
 
 table_sorted = {k: v for k, v in sorted(table.items(), key = lambda item: item[1], reverse=True)}
 
-report = StringBuilder()
+report = ReportWriter()
 for value, frequency in table_sorted.items():
     if frequency > 1:
         report.writevals(value, frequency)
