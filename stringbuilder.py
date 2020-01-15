@@ -38,6 +38,14 @@ class StringBuilder:
             self.write(val)
             self.writedelim()
 
+    def writevals(self, *vals, indent: int = 0, newline: bool = True):
+        self.writeindent(indent)
+        for val in list(vals):
+            self.write(val)
+            self.writedelim()
+        if newline:
+            self.writeline()
+
     def writerows(self, vals: Iterable[str], indent: int = 0):
         for val in vals:
             self.writeline(val, indent)
